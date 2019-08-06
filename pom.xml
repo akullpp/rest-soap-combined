@@ -1,68 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>geoloc</artifactId>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <groupId>org.springframework.boot</groupId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.0</version>
-      </plugin>
-    </plugins>
-  </build>
+  <artifactId>geoloc</artifactId>
+  <groupId>de.akull</groupId>
+  <version>0.1.0</version>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <version>2.1.6.RELEASE</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+
+    <assertj.version>3.11.1</assertj.version>
+    <cxf-spring-boot-starter-jaxws.version>3.3.2</cxf-spring-boot-starter-jaxws.version>
+    <ehcache.version>3.4.0</ehcache.version>
+    <flyway.version>5.2.4</flyway.version>
+    <java.version>1.8</java.version>
+    <junit.version>5.3.1</junit.version>
+    <maven-surefire-plugin>2.22.0</maven-surefire-plugin>
+    <mockito.version>2.23.4</mockito.version>
+    <postgresql.version>42.2.6</postgresql.version>
+    <swagger.version>2.7.0</swagger.version>
+    <validation.api.version>2.0.1.Final</validation.api.version>
+  </properties>
+
   <dependencies>
+    <!-- Web -->
     <dependency>
       <artifactId>spring-boot-starter-web</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
-
     <dependency>
       <artifactId>spring-boot-starter-web-services</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
-
     <dependency>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <artifactId>spring-boot-starter-hateoas</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
-
-    <dependency>
-      <artifactId>validation-api</artifactId>
-      <groupId>javax.validation</groupId>
-      <version>${validation.api.version}</version>
-    </dependency>
-
-    <dependency>
-      <artifactId>flyway-core</artifactId>
-      <groupId>org.flywaydb</groupId>
-      <version>${flyway.version}</version>
-    </dependency>
-
-    <dependency>
-      <artifactId>postgresql</artifactId>
-      <groupId>org.postgresql</groupId>
-      <version>${postgresql.version}</version>
-    </dependency>
-
     <dependency>
       <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
       <groupId>org.apache.cxf</groupId>
       <version>${cxf-spring-boot-starter-jaxws.version}</version>
-    </dependency>
-
-    <dependency>
-      <artifactId>spring-boot-starter-data-rest</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-
-    <dependency>
-      <artifactId>spring-boot-starter-hateoas</artifactId>
-      <groupId>org.springframework.boot</groupId>
     </dependency>
 
     <!-- Cache -->
@@ -76,11 +63,6 @@
       <version>${ehcache.version}</version>
     </dependency>
 
-    <dependency>
-      <artifactId>lombok</artifactId>
-      <groupId>org.projectlombok</groupId>
-    </dependency>
-
     <!-- Swagger -->
     <dependency>
       <artifactId>springfox-swagger2</artifactId>
@@ -91,6 +73,34 @@
       <artifactId>springfox-swagger-ui</artifactId>
       <groupId>io.springfox</groupId>
       <version>${swagger.version}</version>
+    </dependency>
+
+    <!-- Database -->
+    <dependency>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>postgresql</artifactId>
+      <groupId>org.postgresql</groupId>
+      <version>${postgresql.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>flyway-core</artifactId>
+      <groupId>org.flywaydb</groupId>
+      <version>${flyway.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>validation-api</artifactId>
+      <groupId>javax.validation</groupId>
+      <version>${validation.api.version}</version>
+    </dependency>
+
+    <!-- Misc -->
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
     </dependency>
 
     <!-- Test -->
@@ -141,30 +151,17 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <groupId>de.akull</groupId>
 
-  <modelVersion>4.0.0</modelVersion>
-
-  <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <groupId>org.springframework.boot</groupId>
-    <version>2.1.6.RELEASE</version>
-  </parent>
-
-  <properties>
-    <assertj.version>3.11.1</assertj.version>
-    <cxf-spring-boot-starter-jaxws.version>3.3.2</cxf-spring-boot-starter-jaxws.version>
-    <ehcache.version>3.4.0</ehcache.version>
-    <flyway.version>5.2.4</flyway.version>
-    <java.version>1.8</java.version>
-    <junit.version>5.3.1</junit.version>
-    <mockito.version>2.23.4</mockito.version>
-    <postgresql.version>42.2.6</postgresql.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <swagger.version>2.7.0</swagger.version>
-    <validation.api.version>2.0.1.Final</validation.api.version>
-  </properties>
-
-  <version>0.1.0</version>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>

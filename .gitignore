@@ -1,4 +1,9 @@
 target/
 .idea/
+.vscode/
+.settings/
+.classpath
+.factorypath
+.project
 .env.local
 *.iml

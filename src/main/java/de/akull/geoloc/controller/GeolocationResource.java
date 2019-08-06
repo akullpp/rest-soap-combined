@@ -8,6 +8,8 @@ import org.springframework.hateoas.core.Relation;
 
 @Getter
 @Builder
+@Relation(collectionRelation = "geolocations")
+class GeolocationResource extends ResourceSupport {
 
     @NotBlank
     private String query;
