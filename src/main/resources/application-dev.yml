@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/geoloc"
+    username: "postgres"
+    password: "postgres"
+    platform: "postgresql"
+
+google.geolocation.api: "https://maps.googleapis.com/maps/api/geocode"

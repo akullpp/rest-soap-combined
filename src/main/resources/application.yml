@@ -1,0 +1,7 @@
+spring:
+  jpa:
+    hibernate.ddl-auto: none
+    open-in-view: false
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+  cache.ehcache.config: classpath:ehcache.xml
+  jackson.default-property-inclusion: non_null
