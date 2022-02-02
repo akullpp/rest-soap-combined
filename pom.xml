@@ -27,7 +27,7 @@
     <junit.version>5.3.1</junit.version>
     <maven-surefire-plugin>2.22.0</maven-surefire-plugin>
     <mockito.version>2.23.4</mockito.version>
-    <postgresql.version>42.2.6</postgresql.version>
+    <postgresql.version>42.2.25</postgresql.version>
     <swagger.version>2.7.0</swagger.version>
     <validation.api.version>2.0.1.Final</validation.api.version>
   </properties>
